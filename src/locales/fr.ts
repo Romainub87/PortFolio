@@ -1,7 +1,7 @@
 // locales/fr.ts
 export default {
     header: {
-        'age': 'a 21 ans',
+        'age': ' a 21 ans',
         'city': ' est bordelais',
         'food': ' aime les chocolatines !',
         'metier': 'Développeur Web',
