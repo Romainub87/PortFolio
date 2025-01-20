@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Slackey&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Chewy", serif;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
