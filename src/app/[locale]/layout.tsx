@@ -2,6 +2,12 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Providers } from "@/app/[locale]/providers";
 import { ReactNode } from "react";
+import { setStaticParamsLocale} from "next-international/server";
+import { getStaticParams } from '@/locales/server';
+
+export async function generateStaticParams() {
+    return getStaticParams();
+}
 
 export const metadata: Metadata = {
     title: "Portfolio",
@@ -16,6 +22,7 @@ export default async function RootLayout({
     params: Promise<{ locale: string }>;
 }>) {
     const { locale } = await params;
+    setStaticParamsLocale(locale);
 
     return (
         <html lang={locale}>

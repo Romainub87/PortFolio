@@ -60,7 +60,7 @@ export default function Home() {
     };
 
     type();
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     if (isDarkMode) {

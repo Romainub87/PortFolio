@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight, faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
@@ -25,18 +25,18 @@ export default function Carousel() {
         { src: woodeoImage, alt: 'Woodeo', title: t('3.title'), link: 'https://' + t('3.link'), description: t('3.description') },
     ];
 
-    useEffect(() => {
-        const interval = setInterval(handleNext, 20000);
-        return () => clearInterval(interval);
-    }, [currentIndex]);
-
     const handlePrev = () => {
         if (currentIndex > 0) updateIndex(currentIndex - 1);
     };
 
-    const handleNext = () => {
+    const handleNext = useCallback(() => {
         updateIndex(currentIndex < projects.length - 1 ? currentIndex + 1 : 0);
-    };
+    }, [currentIndex, projects.length]);
+
+    useEffect(() => {
+        const interval = setInterval(handleNext, 20000);
+        return () => clearInterval(interval);
+    }, [currentIndex, handleNext]);
 
     const updateIndex = (newIndex: number) => {
         setCurrentIndex(newIndex);
