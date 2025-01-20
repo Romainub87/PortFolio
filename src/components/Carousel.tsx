@@ -82,7 +82,7 @@ export default function Carousel() {
 
     return (
         <div
-            className="carousel relative h-96 w-full flex justify-center items-center dark:text-gray-100 overflow-hidden"
+            className="relative h-96 w-full flex justify-center items-center dark:text-gray-100 overflow-hidden"
             ref={carouselRef}
             onMouseDown={handleMouseDown(currentIndex)}
             onMouseMove={handleMouseMove}
@@ -92,16 +92,15 @@ export default function Carousel() {
             onTouchEnd={handleTouchEnd}
         >
             <div
-                className="carousel-inner flex flex-row items-center transition-transform duration-500 ease-in-out transform"
+                className="flex flex-row items-center transition-transform duration-500 ease-in-out transform"
                 style={{ transform: `translateX(${currentTranslate}%)`, width: `${projects.length * 100}%` }}
             >
                 {projects.map((image, index) => (
                     <div
                         key={index}
                         className={`w-full flex-shrink-0 flex flex-col items-center transition-opacity duration-500 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
-                        style={{ width: '100%' }}
                     >
-                        <Image src={image.src} alt={image.alt} className="rounded-lg bg-gray-900 dark:bg-transparent w-full h-auto max-w-md" />
+                        <Image src={image.src} alt={image.alt} className="rounded-lg w-5/6 bg-gray-900 dark:bg-transparent md:w-full h-auto max-w-md" />
                         <h3 className="text-2xl font-bold mt-4 text-center sm:text-left">
                             {image.title}
                             {image.link && (
@@ -115,12 +114,12 @@ export default function Carousel() {
                 ))}
             </div>
             {currentIndex > 0 && (
-                <button onClick={handlePrev} className="hidden md:block carousel-control next absolute left-0 top-0 h-full w-1/12 bg-transparent rounded-2xl text-gray-900 dark:text-gray-200 p-2 hover:bg-gray-400/50 dark:hover:bg-gray-700/50 transition-bg-opacity duration-300 bg-opacity-25 hover:bg-opacity-75">
+                <button onClick={handlePrev} className="hidden md:block next absolute left-0 top-0 h-full w-1/12 bg-transparent rounded-2xl text-gray-900 dark:text-gray-200 p-2 hover:bg-gray-400/50 dark:hover:bg-gray-700/50 transition-bg-opacity duration-300 bg-opacity-25 hover:bg-opacity-75">
                     <FontAwesomeIcon icon={faArrowLeft} className="text-3xl"/>
                 </button>
             )}
             {currentIndex < projects.length - 1 && (
-                <button onClick={handleNext} className="hidden md:block carousel-control next absolute right-0 top-0 h-full w-1/12 bg-transparent rounded-2xl text-gray-900 dark:text-gray-200 p-2 hover:bg-gray-400/50 dark:hover:bg-gray-700/50 transition-bg-opacity duration-300 bg-opacity-25 hover:bg-opacity-75">
+                <button onClick={handleNext} className="hidden md:block next absolute right-0 top-0 h-full w-1/12 bg-transparent rounded-2xl text-gray-900 dark:text-gray-200 p-2 hover:bg-gray-400/50 dark:hover:bg-gray-700/50 transition-bg-opacity duration-300 bg-opacity-25 hover:bg-opacity-75">
                     <FontAwesomeIcon icon={faArrowRight} className="text-3xl" />
                 </button>
             )}
