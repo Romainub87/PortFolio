@@ -8,6 +8,15 @@ const nextConfig: NextConfig = {
     },
     basePath: isProduction ? '/Portfolio' : '',
     assetPrefix: isProduction ? '/Portfolio/' : '',
+    async redirects() {
+        return [
+            {
+                source: '/',
+                destination: '/en',
+                permanent: false,
+            },
+        ];
+    },
 };
 
 export default nextConfig;
