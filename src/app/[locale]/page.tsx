@@ -5,13 +5,13 @@ import Image from 'next/image';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import profileImage from '@/assets/profile.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon} from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Cookies from 'js-cookie';
-import {useScopedI18n} from "@/locales/client";
-import {LocaleSelect} from "@/app/[locale]/localeSelect";
+import { useScopedI18n } from "@/locales/client";
+import { LocaleSelect } from "@/app/[locale]/localeSelect";
 
 export default function Home() {
   const t = useScopedI18n('header');
@@ -87,7 +87,7 @@ export default function Home() {
         <div className="absolute top-4 md:right-3 right-0 md:top-10 flex items-center justify-between md:justify-end w-full px-4 sm:px-10">
           <LocaleSelect />
           <button onClick={toggleDarkMode} className="p-2 px-0 mx-5">
-            <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon } className="text-2xl text-gray-900 dark:text-gray-100 align-middle"/>
+            <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} className="text-2xl text-gray-900 dark:text-gray-100 align-middle" />
           </button>
         </div>
 
