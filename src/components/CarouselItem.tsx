@@ -3,9 +3,11 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
+import { StaticImageData } from 'next/image';
+
 interface CarouselItemProps {
     image: {
-        src: string;
+        src: StaticImageData;
         alt: string;
         title: string;
         description: string;
